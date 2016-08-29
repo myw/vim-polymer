@@ -1,11 +1,27 @@
-" core-style tag support
-if exists("main_syntax")
-  if main_syntax != "html"
+" Vim syntax file
+" Language:    Polymer HTML
+" Maintainer:  Misha Wolfson <http://myw.github.io/>
+" Authors:     Ben Davis <https://stackoverflow.com/cv/bendavis>,
+"              Misha Wolfson <http://myw.github.io/>
+" URL:         https://github.com/myw/vim-polymer
+" Last Change: 2016-08-29
+
+" For version 5.x: Clear all syntax items
+" For version 6.x: Quit when a syntax file was already loaded
+if !exists("main_syntax")
+  if version < 600
+    syntax clear
+  elseif exists("b:current_syntax")
     finish
   endif
+  let main_syntax = 'polymerhtml'
 endif
-runtime! syntax/css.vim
+
+runtime! syntax/html.vim
 unlet b:current_syntax
+
+runtime! syntax/polymerelements.vim
+runtime! syntax/polymercss.vim
 
 " Less strict highlighting on element attributes
 syn match htmlArg contained "\<[-a-zA-Z0-9]\+[ $=>]"me=e-1
@@ -22,3 +38,10 @@ syn cluster htmlPreproc add=polymerBoundVarRegion
 syn cluster htmlPreproc add=polymerOneWayBoundVarRegion
 hi link polymerBoundVarRegion Special
 hi link polymerOneWayBoundVarRegion Special
+
+let b:current_syntax = 'polymerhtml'
+
+if main_syntax == 'polymerhtml'
+  unlet main_syntax
+endif
+
