@@ -1,20 +1,20 @@
-if exists('g:loaded_syntastic_html_polylint_checker')
+if exists('g:loaded_syntastic_polymerhtml_polylint_checker')
     finish
 endif
-let g:loaded_syntastic_html_polylint_checker = 1
+let g:loaded_syntastic_polymerhtml_polylint_checker = 1
 
 let s:save_cpo = &cpo
 set cpo&vim
 
-function! SyntaxCheckers_html_polylint_IsAvailable() dict
+function! SyntaxCheckers_polymerhtml_polylint_IsAvailable() dict
     return executable(self.getExec())
 endfunction
 
-function! SyntaxCheckers_html_polylint_GetHighlightRegex(item)
+function! SyntaxCheckers_polymerhtml_polylint_GetHighlightRegex(item)
     return ''
 endfunction
 
-function! SyntaxCheckers_html_polylint_GetLocList() dict
+function! SyntaxCheckers_polymerhtml_polylint_GetLocList() dict
     let makeprg = self.makeprgBuild({
                 \ 'args': '--no-recursion'})
 
@@ -30,7 +30,7 @@ function! SyntaxCheckers_html_polylint_GetLocList() dict
 endfunction
 
 call g:SyntasticRegistry.CreateAndRegisterChecker({
-            \ 'filetype': 'html',
+            \ 'filetype': 'polymerhtml',
             \ 'name': 'polylint',
             \ 'exec': 'polylint' })
 
