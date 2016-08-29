@@ -98,3 +98,4 @@ syn keyword polymerElement slide-up-animation
 syn keyword polymerElement transform-animation
 syn keyword polymerElement zip-validator
 
+" vim: set et fenc=utf-8 ff=unix sts=2 sw=2 ts=2 :

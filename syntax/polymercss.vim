@@ -21,18 +21,18 @@ syn match cssVendorProp contained "\(^\|;\|\s\)\@<=-[a-zA-Z_][a-zA-Z0-9_-]*\>"
 " Polymer CSS mixins
 syn match cssMixinName contained "\(^\|;\|\s\)\@<=--[a-zA-Z_][a-zA-Z0-9_-]*\>\(\s*:\s*{\)\@="
 syn region cssMixinDefinition
-    \ contained transparent fold
-    \ matchgroup=cssBraces start="\(^\|;\|\s\)--[a-zA-Z_][a-zA-Z0-9_-]*\>:\s*\zs{" end="}"
-    \ contains=cssDefinition,cssMixinName,cssAttrRegion,cssComment,cssColor,cssURL,cssImportant,cssError,cssStringQ,cssStringQQ,cssFunction,cssUnicodeEscape,cssVendor,cssDefinition,cssHacks,cssNoise,cssMixinDefinition,cssMixinName,cssApplyRegion,cssApplyName,"cssValue.*",css.*Prop
+  \ contained transparent fold
+  \ matchgroup=cssBraces start="\(^\|;\|\s\)--[a-zA-Z_][a-zA-Z0-9_-]*\>:\s*\zs{" end="}"
+  \ contains=cssDefinition,cssMixinName,cssAttrRegion,cssComment,cssColor,cssURL,cssImportant,cssError,cssStringQ,cssStringQQ,cssFunction,cssUnicodeEscape,cssVendor,cssDefinition,cssHacks,cssNoise,cssMixinDefinition,cssMixinName,cssApplyRegion,cssApplyName,"cssValue.*",css.*Prop
 
 syn region cssApplyRegion contained matchgroup=cssApplyName start="\(^\|\s\)@apply\s*(" end=")" oneline keepend
 
 " Redefine cssAttrRegion to exclude mixin regions
 syn clear cssDefinition
 syn region cssDefinition
-    \ transparent fold
-    \ matchgroup=cssBraces start='{' end='}'
-    \ contains=cssAttrRegion,cssComment,cssColor,cssURL,cssImportant,cssError,cssStringQ,cssStringQQ,cssFunction,cssUnicodeEscape,cssVendor,cssDefinition,cssHacks,cssNoise,cssMixinDefinition,cssMixinName,cssApplyRegion,cssApplyName,"cssValue.*",css.*Prop
+  \ transparent fold
+  \ matchgroup=cssBraces start='{' end='}'
+  \ contains=cssAttrRegion,cssComment,cssColor,cssURL,cssImportant,cssError,cssStringQ,cssStringQQ,cssFunction,cssUnicodeEscape,cssVendor,cssDefinition,cssHacks,cssNoise,cssMixinDefinition,cssMixinName,cssApplyRegion,cssApplyName,"cssValue.*",css.*Prop
 
 syn clear cssAttrRegion
 syn region cssAttrRegion
@@ -47,3 +47,5 @@ hi link cssVendorProp cssProp
 hi link cssApplyName cssFunctionName
 hi link cssApplyRegion cssFunction
 hi link shadowDomSelector Special
+
+" vim: set et fenc=utf-8 ff=unix sts=2 sw=2 ts=2 :

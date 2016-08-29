@@ -45,3 +45,4 @@ if main_syntax == 'polymerhtml'
   unlet main_syntax
 endif
 
+" vim: set et fenc=utf-8 ff=unix sts=2 sw=2 ts=2 :
